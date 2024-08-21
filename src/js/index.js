@@ -145,7 +145,7 @@ const projectsCardsContainer = document.querySelector('.projectsContainer');
 const closeModalButton = document.querySelector('.closeButton');
 
 async function fetchProjects (){ // faz a requisição ao arquivo json
-    const response = await fetch("/projects.json");
+    const response = await fetch("https://alexjr53.github.io/Portfolio/projects.json");
     return await response.json();
 }
 
