@@ -1,14 +1,12 @@
 
 //arrumar a scrollbar
-//refatorar o codigo de clique fora do menu
-
-
-// 9 adicionar o curriculo / fazer o curriculo
-// testar o hover dos links no mobile
-// testar o hover dos projetos no mobile
-// testar em outros navegadores
 // colocar os projetos
-// testar no celular
+
+
+// testar o hover dos links no mobile // testar o hover dos projetos no mobile // testar em outros navegadores // testar no celular
+
+
+
 
 
 //-----------------------efeito de digitação do banner
