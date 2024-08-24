@@ -407,7 +407,7 @@ body.bodyLightMode{
 
 .projects .projectsContainer .projectCard .projectName{
     font-family: "Open Sans", sans-serif;
-    color: #c52a39;
+    color: white;
     font-size: 3rem;
 }
 
@@ -686,7 +686,7 @@ body.bodyLightMode{
 }
 
 .modal .modalContent .modalDetailsContainer .modalIcons i{
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
  /*estilizando a scrollbar*/
