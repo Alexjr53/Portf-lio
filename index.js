@@ -1,6 +1,7 @@
 
 //arrumar a scrollbar
 // colocar os projetos
+//colocar gifs dos projetos
 
 
 // testar o hover dos links no mobile // testar o hover dos projetos no mobile // testar em outros navegadores // testar no celular
