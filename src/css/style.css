@@ -409,6 +409,7 @@ body.bodyLightMode{
     font-family: "Open Sans", sans-serif;
     color: white;
     font-size: 3rem;
+    backdrop-filter: blur(0.5rem);
 }
 
 .projects .projectsContainer .projectCard .projectIcons{
@@ -420,7 +421,8 @@ body.bodyLightMode{
 
 .projects .projectsContainer .projectCard .projectIcons i{
     font-size: 3rem;
-    color: #c52a39;
+    color: white;
+    backdrop-filter: blur(0.5rem);
 }
 
 .projects .projectsContainer .projectCard .projectDetails{
