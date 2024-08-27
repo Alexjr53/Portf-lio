@@ -1,0 +1,65 @@
+/*bannner*/
+.banner{
+    font-family: "Open Sans", sans-serif;
+    height: 95rem;
+    padding: 0 2rem;
+    position: relative; /* para posicionar a seta */ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner .textBox{ /* foi usado essa div para que os elementos tenham a posição definida enquanto ocorre a animação, sem que os elementos abaixo tenham suas pocições alteradas no processo*/
+    min-height: 21rem;
+    text-align: center;
+}
+
+.banner .textBox .bannerTitle{
+    font-size: 10rem;
+}
+
+.banner .textBox .bannerSubtitle{
+    font-size: 5rem;
+}
+
+.banner .textBox .bannerSubtitle.hidden{
+    opacity: 0;
+}
+
+.banner .bannerSubtitle span{
+    color: #e04958;
+}
+
+.banner .bannerContact{
+    font-size: 1.7rem;
+    margin-top: 2rem;
+}
+
+.banner .arrow{
+    position: absolute;
+    bottom: 5rem;
+    animation: pulse 1s infinite;
+}
+
+.banner .arrow img{
+    width: 7rem;
+    transition: 0.2s ease-in-out;
+}
+
+.banner .arrow img:hover{
+    transform: scale(1.3);
+}
+
+@keyframes pulse { /*animação para a seta*/
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+ 

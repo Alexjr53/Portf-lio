@@ -1,0 +1,73 @@
+/* seção sobre*/
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95rem;
+}
+
+.about .aboutContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.about .aboutContainer .photo img{
+    width: 35rem;
+    border-radius: 50%;
+}
+
+.about .aboutContainer .textContainer{
+    max-width: 40%;
+}
+
+.about .aboutContainer .textContainer .text{
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.about .aboutContainer .textContainer .socialContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+
+.about .aboutContainer .textContainer .socialContainer .iconLink i{
+    font-size: 3.5rem;
+}
+
+.about .aboutContainer .textContainer .socialContainer .iconLink i:hover{
+    transition: 0.3s ease-out;
+    color: #e04958;
+}
+
+.about .aboutContainer .textContainer .socialContainer .curriculoBtn{
+    font-family: "Noto Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5rem 1.7rem;
+    border-radius: 1rem;
+    background-color: #dd3445;
+}
+
+.about .aboutContainer .socialContainer .curriculoBtn:hover{
+    transition: 0.3s ease-out;
+    background-color: #a51927;
+}
+
+.about .aboutContainer .socialContainer .curriculoBtn .btnLink{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: black;
+}
+
+.about .aboutContainer .socialContainer .curriculoBtn .btnLink i{
+    font-size: 2rem;
+    color: black;
+}

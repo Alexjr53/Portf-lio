@@ -1,0 +1,75 @@
+/*seção de contatos*/
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80rem;
+    padding: 0 3rem;
+}
+
+.contact .sectionTitle{
+    margin-bottom: 1em;
+}
+
+.contact .contactMessage{
+    font-family: "Raleway", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.contact .social {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.contact .social .socialSingle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contact .social .line {
+    width: 0.3rem;
+    background-color: #e04958;
+    height: 15rem;
+}
+
+.contact .social .socialSingle .icon{
+    width: 1.7em;
+    height: 5rem;
+    border: 0.2rem solid black;
+    font-size: 3rem;
+    color: black;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact .social .socialSingle .icon:hover{
+    transition: 0.3s ease-out;
+    background-color: #e04958;
+}
+
+.contact .social .socialSingle:last-child .icon:hover { /*para remover o hover do icon do e-mail*/
+    background-color: white;
+    transition: none; 
+}
+
+.contact .social .socialSingle .contactOption{
+    font-family: "Noto Sans", sans-serif;
+    font-size: 2rem;
+}
+
+.contact .social .socialSingle .contactDescription{
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1.6rem;
+}

@@ -1,0 +1,40 @@
+/* seção tecnologia */
+.technologies{
+    height: 95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.technologies .technologyContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 5rem;
+}
+
+.technologies .technologyContainer .technologySingle{
+    text-align: center;
+    height: 14rem;
+    transition: transform 0.5s ease;
+}
+
+.technologies .technologyContainer .technologySingle:hover{
+    transition: 0.5s;
+    transform: scale(1.5);
+}
+
+.technologies .technologyContainer .technologySingle .technologyName{
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.technologies .technologyContainer .technologySingle .technologyImage{
+    width: 10rem;
+}
+

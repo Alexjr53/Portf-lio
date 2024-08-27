@@ -1,0 +1,84 @@
+html,body{
+    height: 100%;  
+    scroll-behavior: smooth; /*faz a rolagem da página ser mais suave*/
+    overflow-x: hidden;
+}
+
+body{
+    background: linear-gradient(178deg, #191c29,#0e1015);
+    color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*classe para adicionar estilo a todos os titulos das sections (main e sections)*/
+.sectionTitle{ 
+    font-family: "Raleway", sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: 2.5em;
+    text-align: center;
+}
+
+/*para adicionar a transição aos conteudos da pagina*/
+.content, .contentProjects{
+    opacity: 0;
+    transform: translateX(20%);
+    transition: opacity 0.8s ease-in, transform 1.5s ease;
+}
+
+.content.visible, .contentProjects.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/*----------------------lighMode e DarkMode----------------------*/
+/*classe que são adicionadas com javascript*/
+body.bodyLightMode{
+    background: linear-gradient(178deg, #ffffff, #cccccc);
+    color: black;
+}
+
+.header .navMenu .darkModeBtn.lightMode{
+    justify-content: end;
+    background-color: black;
+}
+
+.header .navMenu .darkModeBtn .dark.light{
+    background-color: white;
+}
+
+.iconLink i.ColorLightMode{
+    color: black;
+}
+
+.footer.footerLightMode{
+    background-color: #191c29;
+}
+
+.footer .arrowUp.arrowLightMode{
+    background-color: white;
+}
+
+.modal.modalLightMode{
+    background: linear-gradient(178deg, #ffffff, #cccccc);
+}
+/*-----------------------------------------------------------------------*/
+
+
+ /*estilizando a scrollbar*/
+ ::-webkit-scrollbar-thumb:hover {
+    background: #9e2632; /* Cor do thumb ao passar o mouse */
+}
+
+::-webkit-scrollbar-track {
+    background: #191c29; /* Cor de fundo do track do scrollbar */
+}
+
+::-webkit-scrollbar {
+    width: 1rem; /* Largura do scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e04958; /* Cor do thumb (parte que se move) */
+    border-radius: 1rem; /* Bordas arredondadas */
+}

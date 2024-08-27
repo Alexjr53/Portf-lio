@@ -1,0 +1,106 @@
+/* seção projetos */
+
+.projects .projectsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 7rem;
+}
+
+.projects .projectsContainer .projectCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* para poder posicionar o o projectdetails do card na parte de baixo*/
+    background-color: white;
+    border-bottom: 0.5rem solid ;
+    border-image: linear-gradient(to right, #e04958, #c52a39, #cc1628) 1; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50rem;
+    height: 30rem;
+    gap: 2rem;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: -3px 40px 30px -22px rgba(0,0,0,0.78);
+    border-radius: 1rem;
+}
+
+.projects .projectsContainer .projectCard:hover{
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+    opacity: 1;
+    outline: 0.4rem solid white; /* Define a borda externa */
+    outline-offset: 0.2rem; 
+}
+
+.projects .projectsContainer .projectCard:hover .projectName, .projectCard:hover .projectIcons{
+    visibility: hidden;
+}
+
+.projects .projectsContainer .projectCard:hover .projectDetails{
+    visibility: visible;
+}
+
+.projects .projectsContainer .projectCard .projectName{
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-size: 3rem;
+    backdrop-filter: blur(0.5rem);
+}
+
+.projects .projectsContainer .projectCard .projectIcons{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 1rem;
+}
+
+.projects .projectsContainer .projectCard .projectIcons i{
+    font-size: 3rem;
+    color: white;
+    backdrop-filter: blur(0.5rem);
+}
+
+.projects .projectsContainer .projectCard .projectDetails{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute; 
+    bottom: 0rem;
+    padding: 1rem 0;
+    border-top: 1px solid gray;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    visibility: hidden;
+}
+
+.projects .projectsContainer .projectCard .projectDetails p{
+    font-family: "Noto Sans", sans-serif;
+    color: black;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.projects .projectsContainer .projectCard .projectDetails .btnModalOpen{
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 0.6rem 1.3rem;
+    border-radius: 2rem;
+}
+
+.projects .projectsContainer .projectCard .projectDetails .btnModalOpen:hover{
+    color: white;
+    background-color: #e04958;
+    transition: 0.5s;
+    transform: scale(1.2);
+}

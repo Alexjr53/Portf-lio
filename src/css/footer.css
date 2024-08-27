@@ -1,0 +1,41 @@
+.footer{
+    border-top: 0.1rem solid ;
+    border-image: linear-gradient(to right, #e04958, #a8323e, #7a252d) 1; 
+    height: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+.footer .footerMessage{
+    font-family: "Raleway", sans-serif;
+    font-size: 1.8rem;
+}
+
+.footer .arrowUp{
+    position: absolute;
+    right: 20rem;
+    bottom: 7rem;
+    background-color: #0e1015;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1s infinite;
+    border: 0.1rem solid #e04958;
+}
+
+
+.footer .arrowUp img{
+    width: 5rem;
+    transform: rotateX(180deg);
+}
+
+.footer .arrowUp:hover{
+    background-color: white;
+}

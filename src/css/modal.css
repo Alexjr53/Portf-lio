@@ -1,0 +1,110 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #191c29;
+    width: 85%;
+    padding: 2rem; 
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 1rem;
+}
+
+/* estilização do overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0.6rem); /* Aplica o desfoque no conteúdo atrás do overlay */
+    z-index: 2;
+  }
+
+
+.modal.show, /*usado para fazer ele aparecer usando javascritp*/
+.overlay.show {
+    display: block;
+}
+
+.modalContent {
+    display: flex;
+    gap: 2rem
+}
+
+.modal .modalContent .modalImageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.modal .modalContent .modalImageContainer .modalImage{
+    width: 100%;
+}
+
+.modal .modalContent .modalImageContainer .btnContainer{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+.modal .modalContent .modalImageContainer .btnContainer a{
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1.7rem;
+    padding:  0.5rem 2rem;
+    background-color: #e04958;
+    border-radius: 1rem;
+}
+
+.modal .modalContent .modalImageContainer .btnContainer a:hover{
+    background-color: #c52a39;
+}
+
+.modal .modalContent .modalDetailsContainer{
+    width: 50%;
+}
+
+.modal .modalContent .modalDetailsContainer .detailsHeader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.modal .modalContent .modalDetailsContainer .detailsHeader .modalTitle{
+    font-family: "Open Sans", sans-serif;
+    font-size: 3rem;
+}
+
+.modal .modalContent .modalDetailsContainer .detailsHeader .closeButton{
+    border: none;
+    font-size: 5rem;
+    color: #e04958;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modal .modalContent .modalDetailsContainer .modalDescription{
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+.modal .modalContent .modalDetailsContainer .modalIcons{
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem
+}
+
+.modal .modalContent .modalDetailsContainer .modalIcons i{
+    font-size: 3rem;
+}

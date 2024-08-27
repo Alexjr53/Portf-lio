@@ -1,0 +1,110 @@
+/*header*/
+.header{
+    font-family: "Roboto Condensed", sans-serif;
+    width: 100%;
+    height: 10rem;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;                                           
+    justify-content: space-around;
+    background-color: #191c29;
+    border-bottom: 0.1rem solid ;
+    border-image: linear-gradient(to right, #e04958, #a8323e, #7a252d) 1; 
+    box-shadow: 0 0.7rem 0.6rem rgba(0, 0, 0, 0.2), 0 0.6rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.header .logo{
+    font-size: 4rem;
+    color: #e04958;
+    transition: 0.2s;
+}
+
+.header .navMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------------menu hamburguer (mobile) v */
+
+.header .navMenu input{ /*input que faz o menu aparecer e sumir no responsive*/
+    display: none;
+}
+
+.header .navMenu label .menuMobile{ /* container do icone do menu hamburguer (mobile) */
+    display: none;
+    cursor: pointer;
+    width: 6rem;
+    height: 6rem;
+}
+
+.header .navMenu label .menuMobile .menuIcon{ /*representa o traço do meio do menu hamburguer (mobile) */
+    background-color: white;
+    position: relative;
+    display: block;
+    width: 3rem;
+    height: 0.2rem;
+    top: 2.9rem;
+    left: 1.5rem;
+    transition: 0.5s ease-in-out;
+}
+
+.header .navMenu label .menuMobile .menuIcon:before, 
+.header .navMenu label .menuMobile .menuIcon:after{ /*representa o traço de cima e de baixo do menu hamburguer (mobile) */
+    background-color: white;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+}
+
+.header .navMenu label .menuMobile .menuIcon:before{ /*representa o traço de cima do menu hamburguer (mobile) */
+    top: -1rem;
+}
+
+.header .navMenu label .menuMobile .menuIcon:after{ /*representa o traço de baixo do menu hamburguer (mobile) */
+    bottom: -1rem;
+}
+/* ----------------------- ^ */
+
+.header .navMenu .menuList{
+    display: flex;
+    list-style: none;
+    margin-right: 3rem;
+}
+
+.header .navMenu .menuList .menuOption{
+    font-size: 2.3rem;
+    margin-right: 2rem;
+}
+
+.header .navMenu .menuList .menuOption:hover{
+    color: #e04958; 
+    transition: 0.5s;
+}
+
+.header .navMenu .darkModeBtn{
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    width: 5.5rem;
+    height: 2.3rem;
+    border-radius: 2rem;
+    padding: 0.1rem;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.5s ease;
+}
+
+.header .navMenu .darkModeBtn .dark{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+}
+
