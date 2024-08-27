@@ -333,6 +333,10 @@
         font-size: 1.7rem;
     }
 
+    .projects .projectsContainer .projectCard .projectDetails p{
+        display: none;
+    }
+
     .contact{
         text-align: center;
         height: 80rem;
@@ -380,6 +384,11 @@
 
     .banner .textBox{ 
         min-height: 17rem;
+    }
+
+    .projects .projectsContainer .projectCard .projectName{
+        font-size: 2.6rem;
+        text-align: center;
     }
 
     .modal .modalContent .modalImageContainer .modalImage {
@@ -508,4 +517,20 @@
     .banner .bannerContact{
         font-size: 1.1rem;
     }
+}
+
+@media (max-width: 360px){
+    .banner{
+        height: 72rem;
+    }
+
+    .banner .textBox .bannerTitle{
+        font-size: 3rem;
+    }
+
+    .banner .bannerContact{
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
 }
