@@ -1,15 +1,3 @@
-
-//arrumar a scrollbar
-// colocar os projetos
-//colocar gifs dos projetos
-
-
-// testar o hover dos links no mobile // testar o hover dos projetos no mobile // testar em outros navegadores // testar no celular
-
-
-
-
-
 //-----------------------efeito de digitação do banner
 const title = document.querySelector('.bannerTitle');
 const subtitle = document.querySelector('.bannerSubtitle');
@@ -18,20 +6,20 @@ const arrowUpEvent = document.querySelector('.arrowUp')
 
 subtitle.classList.add('hidden'); //adiciona a classe com opacity 0 ao h2 para quando animação de digitação começar o elemento não começar visivel na tela.
 
-// Função para criar o efeito de digitação (typewriter) em um elemento de texto------------
+// Função para criar o efeito de digitação------------
 function typeWriter(element, callback){
-    const originalHtml = element.innerHTML; //para preservar o span na segunda frase
-    const textArray = element.textContent.split(''); // Divide o texto do conteúdo do elemento em um array de caracteres
-    element.innerHTML = ""; // Limpa o conteúdo HTML do elemento para iniciar o efeito de digitação
+    const originalHtml = element.innerHTML; //para preservar o estilo do span na segunda frase
+    const textArray = element.textContent.split('');
+    element.innerHTML = ""; 
     
-    // Para cada caractere no array de texto, adiciona-o ao conteúdo do elemento com um atraso definido
+    // adiciono uma letra a cada 110 milisegundos
     textArray.forEach((characters, index) => {
         setTimeout(function(){
             element.innerHTML += characters;
-        }, 110 * index) // O tempo de atraso aumenta proporcionalmente ao índice do caracter
+        }, 110 * index) // tempo entre a renderização de cada letra
     });
     
-    // chama a função de callback fornecida após a conclusão do efeito de digitação
+    // chama a função de callback (segunda frase) após a conclusão do efeito de digitação
     setTimeout(() => {
         if (callback) callback();
         element.innerHTML = originalHtml; // Após a conclusão da animação de digitação, restaura o HTML original do elemento (incluindo span com a estilização definida no css)
@@ -41,16 +29,16 @@ function typeWriter(element, callback){
 
 // Função para ativar o cooldown de clique do logo e da seta------------------
 function activateClickCooldown(callback) {
-    let canClickLogo = false; // Flag para controlar o cooldown de 5 segundos
-    setTimeout(()=>{// setTimeout para só permitir o clique apos 5 segundos depois que a página for carregada pela primeira vez
+    let canClickLogo = false; // controlar o cooldown de 5 segundos
+    setTimeout(()=>{// só permite o clique apos 5 segundos depois que a página for carregada pela primeira vez
         canClickLogo = true;
     }, 5000);
 
     return function () { // retorna uma nova função que gerencia o clique.
         if (!canClickLogo) return;
-        canClickLogo = false; // Se canClick é false, a função não faz nada e retorna imediatamente.
+        canClickLogo = false;
 
-        callback();// Executa callback: Chama a função passada como argumento
+        callback();// função da segunda frase
 
         setTimeout(() => {// Reativa a possibilidade de clicar após 5 segundos
             canClickLogo = true; 
@@ -82,8 +70,8 @@ typeWriter(title, function() {
 
 //-------------------transição dos conteudo usando scrollbarr-----------
 
-document.addEventListener("DOMContentLoaded", function () { // evento que será executado quando o documento html for completamente carregado
-    const generalObserver = new IntersectionObserver((entries) => { // observará mudanças de visibilidade em elementos da página.
+document.addEventListener("DOMContentLoaded", function () {
+    const generalObserver = new IntersectionObserver((entries) => { 
         
         entries.forEach((entry) => { // entry contém informações sobre o elemento observado
             if (entry.isIntersecting) {
@@ -93,10 +81,10 @@ document.addEventListener("DOMContentLoaded", function () { // evento que será 
             }
         });
     },{
-        threshold: 0.3 // Define que o callback será acionado quando 30% do elemento estiver visível na viewport
+        threshold: 0.3
     });
     
-    const projectsObserver = new IntersectionObserver((entries) => { //específico para observar a seção de projetos.
+    const projectsObserver = new IntersectionObserver((entries) => { //específico para a section de projetos.
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
@@ -105,18 +93,18 @@ document.addEventListener("DOMContentLoaded", function () { // evento que será 
             }
         });
     },{
-        threshold: 0.1 // Define que o callback será acionado quando 10% do elemento estiver visível na viewport
+        threshold: 0.1 
     });
 
     const generalContents = document.querySelectorAll(".content");
-    generalContents.forEach((content) => { //monitorará esses elementos e aplicará a lógica de visibilidade definida no callback.
+    generalContents.forEach((content) => { // aplicara a lógica de visibilidade da callback.
         generalObserver.observe(content);
     });
 
     const projectsContent = document.querySelector(".contentProjects");
     
-    if (projectsContent) {  //Verifica se o elemento com a classe .contentProjects existe na página
-        projectsObserver.observe(projectsContent); // se estiver existe na página então aplica as regras de visibilidade específicas para a seção de projetos.
+    if (projectsContent) { 
+        projectsObserver.observe(projectsContent); // aplica as regras de visibilidade específicas para a section de projetos.
     }
 });
 //---------------------------------------------------------------------------------------
@@ -130,7 +118,7 @@ document.addEventListener("click", function(event) {
     const menuMobile = document.querySelector('.menuList'); // toda a area do menu do mobile
     const darkModeBtn = document.querySelector('.darkModeBtn')
     
-    
+    //if para definir que o clique foi fora do menu
     if (!btnMenuMobile.contains(event.target) && !btnMenuSpan.contains(event.target) && !checkboxMenuMobile.contains(event.target) && !menuMobile.contains(event.target) && !darkModeBtn.contains(event.target) ) {
         if (checkboxMenuMobile.checked) {
             checkboxMenuMobile.checked = false;
@@ -138,13 +126,12 @@ document.addEventListener("click", function(event) {
     }
 });
 
-
 //-------------------------------criando o card dos projetos-------
 const projectsCardsContainer = document.querySelector('.projectsContainer');
 const closeModalButton = document.querySelector('.closeButton');
 
-async function fetchProjects (){ // faz a requisição ao arquivo json
-    const response = await fetch("projects.json");
+async function fetchProjects (){ 
+    const response = await fetch("projects.json");//arquivo salvo no projeto
     return await response.json();
 }
 
@@ -156,7 +143,7 @@ function createTechnologiesIcons(technologies) { //função para criar os icones
 async function createCards() {
     const data = await fetchProjects();
 
-    data.forEach(project => { //para cada projeto...
+    data.forEach(project => { //para cada projeto
         const projectName = project.name;
         const projectDescription = project.description;
         const projectImages = project.image;
@@ -187,7 +174,7 @@ async function createCards() {
         projectsCardsContainer.appendChild(projectCard);
 
     });
-    // Adiciona um evento de clique ao botão de fechar o modal, verificando se o alvo é o botão correto
+    // Adiciona um evento de clique ao botão de fechar o modal
     closeModalButton.addEventListener('click', function(event) {
         if (event.target.closest('.closeButton')) {
             closeModal();
@@ -211,11 +198,11 @@ function openModal(project) {
     modal.querySelector('.modalDescription').innerHTML = project.description;
     modal.querySelector('.modalIcons').innerHTML = technologiesIcons
 
-    // Exibe o overlay e o modal adicionando uma classe que os torna visíveis
+    // Exibe o overlay e o modal 
     overlay.classList.add('show')
     modal.classList.add('show')
 
-     // Define a opacidade para 1 após um breve atraso para a transição de opacidade ocorrer suavemente
+     // Define a opacidade para 1 após um atraso para a transição de opacidade acontecer
     setTimeout(() => {
         overlay.style.opacity = '1';
         modal.style.opacity = '1';
@@ -227,15 +214,15 @@ function closeModal(){
     const overlay = document.querySelector('.overlay');
     const modal = document.querySelector('.modal');
     
-    // Reduz a opacidade para 0 para iniciar a transição de fechamento
+    // Reduz a opacidade para 0 para iniciar a transição de fechar
     overlay.style.opacity = '0';
     modal.style.opacity = '0';
     
-    // Espera a transição terminar antes de esconder completamente
+    // Espera a transição terminar antes de adicionar display none
     setTimeout(() => {
         overlay.classList.remove('show');
         modal.classList.remove('show');
-    }, 500); // Tempo deve corresponder à duração da transição
+    }, 500);
 };
 
 //fecha o modal se o usuario clicar fora dele
@@ -248,7 +235,6 @@ document.querySelector('.overlay').addEventListener('click', (event) => {
     }
 });
 
-// Chama a função createCards() para iniciar o processo de criação dos cards na página
 createCards();
 
 //--------------------------------botão darkmode
@@ -259,7 +245,7 @@ const footer = document.querySelector('.footer');
 const arrow = document.querySelector('.arrowUp');
 const modal = document.querySelector('.modal');
 
-// Estado inicial do botão, falso indica que o dark mode está ativado por padrão
+// Estado inicial do botão, dark mode está ativo por padrão
 let btnState = false
 
 // Função para alternar entre dark mode e light mode
@@ -275,7 +261,5 @@ const toggleMode = () => {
     // Inverte o estado do botão para refletir a mudança de modo
     btnState = !btnState;
   };
-  // Adiciona um evento de clique no botão para alternar entre dark mode e light mode
-  darkModeBtn.addEventListener('click', toggleMode);
-
-
+  
+darkModeBtn.addEventListener('click', toggleMode);
