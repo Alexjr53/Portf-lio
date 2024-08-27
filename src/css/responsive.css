@@ -425,15 +425,15 @@
     }
 
     .banner{
-        height: 80rem;
+        height: 73rem;
     }
 
     .banner .textBox .bannerTitle{
-        font-size: 4rem;
+        font-size: 3rem;
     }
     
     .banner .textBox .bannerSubtitle{
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
     
     .banner .textBox{
@@ -486,14 +486,6 @@
     .header .navMenu .menuList .menuOption{
         font-size: 1.8em;
     }
-
-    .banner .textBox .bannerTitle{
-        font-size: 3.6rem;
-    }
-
-    .banner .textBox .bannerSubtitle{
-        font-size: 2.1rem;
-    }
     
     .banner .bannerContact{
         font-size: 1.2rem;
@@ -502,32 +494,12 @@
 }
 
 @media (max-width: 375px){
-    .banner{
-        height: 77rem;
-    }
-
-    .banner .textBox .bannerTitle{
-        font-size: 3.4rem;
-    }
-
-    .banner .textBox .bannerSubtitle{
-        font-size: 2rem;
-    }
-
     .banner .bannerContact{
         font-size: 1.1rem;
     }
 }
 
 @media (max-width: 360px){
-    .banner{
-        height: 72rem;
-    }
-
-    .banner .textBox .bannerTitle{
-        font-size: 3rem;
-    }
-
     .banner .bannerContact{
         font-size: 1.1rem;
         text-align: center;
