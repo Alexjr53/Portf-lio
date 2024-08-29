@@ -20,6 +20,7 @@
     border-bottom: 0.5rem solid ;
     border-image: linear-gradient(to right, #e04958, #c52a39, #cc1628) 1; 
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     width: 50rem;
     height: 30rem;
@@ -86,7 +87,7 @@
     font-family: "Noto Sans", sans-serif;
     color: black;
     font-size: 1.7rem;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .projects .projectsContainer .projectCard .projectDetails .btnModalOpen{

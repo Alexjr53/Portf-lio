@@ -28,16 +28,17 @@
     },
     {
       "id": "3",
-      "name": "nome do projeto 3",
+      "name": "Clima em Tempo Real",
       "technologies": [
         "html5",
         "css3-alt",
-        "js"
+        "js",
+        "react"
       ],
-      "description": "Descrição do Projeto 3",
-      "image": "src/images/breve.jpg",
-      "linkSite": "https://www.linkedin.com/in/alexsandro-junior-460a53271/",
-      "linkRepositorio": "https://github.com/Alexjr53?tab=repositories"
+      "description": "Clima em Tempo Real é um aplicativo web interativo que permite aos usuários obter informações meteorológicas para cidades e países ao redor do mundo. Os usuários podem buscar o clima atual, visualizar a temperatura, as condições climáticas e até mesmo a bandeira do país correspondente. O aplicativo também inclui recursos de validação de entrada, oferecendo feedback imediato em caso de erros. Desenvolvido utilizando React.",
+      "image": "src/images/projeto-3.png",
+      "linkSite": "https://alexjr53.github.io/app-clima/",
+      "linkRepositorio": "https://github.com/Alexjr53/app-clima"
     },
     {
       "id": "4",
