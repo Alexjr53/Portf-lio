@@ -2,11 +2,11 @@
 Bem-vindo ao meu portfólio pessoal! Este projeto foi desenvolvido para apresentar minhas habilidades e experiências como Desenvolvedor Front-end. Ele inclui informações sobre mim, as tecnologias que utilizo, e uma seção de projetos onde você pode ver exemplos do meu trabalho.
 
 # Índice
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Funcionalidades](#funcionalidades)
-- [Como Executar o Projeto](#-como-executar-o-projeto)
-- [Contato](#-contato)
+- [Sobre o Projeto](#📄-sobre-o-projeto)
+- [Tecnologias Utilizadas](#🛠️-tecnologias-utilizadas)
+- [Funcionalidades](#🖼️-funcionalidades)
+- [Links](#🔗-Links)
+- [Contato](#💬-contato)
 
 # 📄 Sobre o Projeto
 
@@ -27,23 +27,11 @@ Este projeto é um site de portfólio pessoal onde apresento minha trajetória p
 - Modal: Janela modal que exibe informações detalhadas sobre os projetos.
 - Seção de Contato: Formas de entrar em contato via LinkedIn, WhatsApp, GitHub, e e-mail.
 
-# 🚀 Como Executar o Projeto
+# 🔗 Links
+Acesse o app através dos links abaixo:
 
-1- Clone o Repositório:
-
-``` bash 
-git clone https://github.com/Alexjr53/seu-repositorio.git 
-```
-
-2- Acesse a pasta do projeto:
-
-``` bash 
-cd seu-repositorio 
-```
-
-Abra o arquivo index.html no navegador:
-
-Clique duas vezes no arquivo index.html
+- Site: [Portfólio](https://alexjr53.github.io/Portfolio/)
+- Repositório GitHub: [Portfólio](https://github.com/Alexjr53/Portfolio)
 
 # 💬 Contato
 
