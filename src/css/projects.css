@@ -52,7 +52,11 @@
     font-family: "Open Sans", sans-serif;
     color: white;
     font-size: 3rem;
-    backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(5px) saturate(150%) brightness(70%);
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 1rem;
+    padding: 0 1rem;
+    
 }
 
 .projects .projectsContainer .projectCard .projectIcons{
