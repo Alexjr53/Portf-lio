@@ -60,15 +60,15 @@
 
     <main id="sobre" class="about">
         <h2 class="sectionTitle">Sobre</h2>
-        <div class="aboutContainer content">
+        <div class="aboutContainer scrollAnimate">
             <div class="photo">
                 <img src="src/images/foto-perfil.png" alt="foto de perfil">
             </div>
-            <div class="textContainer">
-                <p class="text">Olá! Meu nome é Alexsandro e estou cursando o 4° semestre de Análise e Desenvolvimento de Sistemas e estou me especializando em desenvolvimento web por meio de cursos complementares. Atualmente busco oportunidades para expandir meus conhecimentos e aplicar na prática os conceitos abordados em sala de aula.</p>
-                <p class="text">Tenho focado meus estudos em consolidar uma base sólida em HTML5, CSS3 e JavaScript, visando futuramente desenvolver projetos no framework React.js. Estou constantemente me aprofundando em outras tecnologias relacionadas à programação, buscando expandir minhas habilidades e conhecimentos na área</p>
-                <p class="text">Sou dedicado, comprometido e apaixonado por tecnologia, sempre em busca de atualizações sobre as tendências do mercado.</p>
-                <p class="text"> Para saber mais sobre minhas experiências, confira meu currículo ou entre em contato pelos meios abaixo!</p>
+            <div class="contentAbout">
+                <p>Olá! Meu nome é Alexsandro e estou cursando o 4° semestre de Análise e Desenvolvimento de Sistemas e estou me especializando em desenvolvimento web por meio de cursos complementares. Atualmente busco oportunidades para expandir meus conhecimentos e aplicar na prática os conceitos abordados em sala de aula.</p>
+                <p>Tenho focado meus estudos em consolidar uma base sólida em HTML5, CSS3 e JavaScript, visando futuramente desenvolver projetos no framework React.js. Estou constantemente me aprofundando em outras tecnologias relacionadas à programação, buscando expandir minhas habilidades e conhecimentos na área</p>
+                <p>Sou dedicado, comprometido e apaixonado por tecnologia, sempre em busca de atualizações sobre as tendências do mercado.</p>
+                <p> Para saber mais sobre minhas experiências, confira meu currículo ou entre em contato pelos meios abaixo!</p>
                 <div class="socialContainer">
                     <a class="iconLink" href="https://www.linkedin.com/in/alexsandro-junior-460a53271/" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
@@ -80,7 +80,7 @@
                         <i class="fab fa-github"></i>
                     </a>
                     <div class="curriculoBtn">
-                        <a class="btnLink" target="_blank" href="AlexsandroRosaJunior.pdf">
+                        <a target="_blank" href="AlexsandroRosaJunior.pdf">
                             <i class="fas fa-file-alt"></i>
                             Currículo.pfd
                         </a>
@@ -92,7 +92,7 @@
     
     <section id="tecnologia" class="technologies">
         <h2 class="sectionTitle">Tecnologias</h2>
-        <div class="technologyContainer  content" >
+        <div class="technologyContainer  scrollAnimate" >
             <div class="technologySingle">
                 <p class="technologyName">HTML 5</p>
                 <img class="technologyImage" src="src/images/html.png" alt="logo do html">
@@ -131,7 +131,7 @@
     <section id="projetos" class="projects">
         <h2 class="sectionTitle">Projetos</h2>
 
-        <div class="projectsContainer contentProjects">
+        <div class="projectsContainer scrollAnimateProjects">
                 <!-- aqui onde os cards são criados no javascript -->
         </div>
             
@@ -143,7 +143,7 @@
         <p class="contactMessage">Caso tenha interesse no meu trabalho e queira entrar em contato</p>
         <p class="contactMessage">sinta se à vontade para me enviar uma mensagem clicando nos botões abaixo!</p>
         
-        <div class="social content">
+        <div class="social scrollAnimate">
             
             <div class="socialSingle">
                 <a class="icon" href="https://wa.me/11997115309" target="_blank">
@@ -211,7 +211,8 @@
             <div class="modalDetailsContainer">
                 <div class="detailsHeader">
                     <h2 class="modalTitle"></h2>
-                    <button class="closeButton">&times;</button>
+                    <!-- <button class="closeButton">&times;</button> -->
+                    <input class="closeButton" type="button" value="X">
                 </div>
                 <p class="modalDescription"></p>
                 <div class="modalIcons"></div>
