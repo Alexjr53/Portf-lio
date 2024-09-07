@@ -1,13 +1,13 @@
 [
     {
       "id": "1",
-      "name": "Aplicação Web para Negócios",
+      "name": "Landing Page",
       "technologies": [
         "html5",
         "css3-alt",
         "js"
       ],
-      "description": "O site apresenta uma empresa fictícia especializada em criar soluções tecnológicas personalizadas para empresas. O projeto inclui seções sobre a empresa, seus serviços, uma equipe fictícia, um formulário de contato e um mapa com uma localização fictícia.",
+      "description": "O site apresenta uma empresa fictícia especializada em criar soluções tecnológicas personalizadas para seus clientes. O projeto inclui seções sobre a empresa, seus serviços, equipe, formulário de contato e um mapa com uma localização fictícia.",
       "image": "src/images/projeto-1.png",
       "linkSite": "https://alexjr53.github.io/pagina-ficticia-desenvolvimento-de-sistemas/",
       "linkRepositorio": "https://github.com/Alexjr53/pagina-ficticia-desenvolvimento-de-sistemas"
