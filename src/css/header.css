@@ -26,67 +26,23 @@
     align-items: center;
 }
 
-/* --------------menu hamburguer (mobile) v */
-
-.header .navMenu input{ /*input que faz o menu aparecer e sumir no responsive*/
-    display: none;
-}
-
-.header .navMenu label .menuMobile{ /* container do icone do menu hamburguer (mobile) */
-    display: none;
-    cursor: pointer;
-    width: 6rem;
-    height: 6rem;
-}
-
-.header .navMenu label .menuMobile .menuIcon{ /*representa o traço do meio do menu hamburguer (mobile) */
-    background-color: white;
-    position: relative;
-    display: block;
-    width: 3rem;
-    height: 0.2rem;
-    top: 2.9rem;
-    left: 1.5rem;
-    transition: 0.5s ease-in-out;
-}
-
-.header .navMenu label .menuMobile .menuIcon:before, 
-.header .navMenu label .menuMobile .menuIcon:after{ /*representa o traço de cima e de baixo do menu hamburguer (mobile) */
-    background-color: white;
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: 0.2s ease-in-out;
-}
-
-.header .navMenu label .menuMobile .menuIcon:before{ /*representa o traço de cima do menu hamburguer (mobile) */
-    top: -1rem;
-}
-
-.header .navMenu label .menuMobile .menuIcon:after{ /*representa o traço de baixo do menu hamburguer (mobile) */
-    bottom: -1rem;
-}
-/* ----------------------- ^ */
-
-.header .navMenu .menuList{
+.menuList{
     display: flex;
     list-style: none;
     margin-right: 3rem;
 }
 
-.header .navMenu .menuList .menuOption{
+.menuList .menuOption{
     font-size: 2.3rem;
     margin-right: 2rem;
 }
 
-.header .navMenu .menuList .menuOption:hover{
+.menuList .menuOption:hover{
     color: #e04958; 
     transition: 0.5s;
 }
 
-.header .navMenu .darkModeBtn{
+.darkModeBtn{
     display: flex;
     align-items: end;
     justify-content: start;
@@ -99,7 +55,7 @@
     transition: background-color 0.5s ease;
 }
 
-.header .navMenu .darkModeBtn .dark{
+.darkModeBtn .dark{
     display: block;
     width: 2rem;
     height: 2rem;
@@ -108,3 +64,210 @@
     transition: background-color 0.5s ease;
 }
 
+/* --------------menu hamburguer (mobile)  */
+
+.navMenu input{ /*input que faz o menu aparecer e sumir no responsive*/
+    display: none;
+}
+
+.menuMobile{ /* container do icone do menu hamburguer (mobile) */
+    display: none;
+    cursor: pointer;
+    width: 6rem;
+    height: 6rem;
+}
+
+.menuMobile .menuIcon{ /*representa o traço do meio do menu hamburguer (mobile) */
+    background-color: white;
+    position: relative;
+    display: block;
+    width: 3rem;
+    height: 0.2rem;
+    top: 2.9rem;
+    left: 1.5rem;
+    transition: 0.5s ease-in-out;
+}
+
+.menuMobile .menuIcon:before, 
+.menuMobile .menuIcon:after{ /*representa o traço de cima e de baixo do menu hamburguer (mobile) */
+    background-color: white;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+}
+
+.menuMobile .menuIcon:before{ /*representa o traço de cima do menu hamburguer (mobile) */
+    top: -1rem;
+}
+
+.menuMobile .menuIcon:after{ /*representa o traço de baixo do menu hamburguer (mobile) */
+    bottom: -1rem;
+}
+/* ----------------------- ^ */
+
+
+@media (max-width: 992px) {
+    .header{                                          
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+
+    .navMenu label{
+        z-index: 1;
+    }
+
+    .menuMobile{ /* container do icone do menu hamburguer (mobile) */
+        display: block;
+        z-index: 1;
+    }
+
+    .menuList{ /* aba do menu hamburguer */
+        flex-direction: column;
+        width: 30rem; 
+        height: 99rem;
+        position: fixed;
+        top: 0;
+        right: -31rem;
+        transition: right 0.5s ease-in-out;
+        background-color: #11141b;
+        overflow-x: hidden;
+        margin: 0;
+        border-left: 0.1rem solid #c52a39;
+        padding-top: 9rem;
+    }
+
+    .menuOption{
+        display: block;
+        font-size: 3em;
+        width: 100%;
+        padding: 1.5rem 2rem;
+        margin-top: 1.3rem;
+        overflow-x: hidden;
+    }
+
+    .menuOption:hover{
+        background-color: #1e222c;
+        color: #e04958; 
+        transition: 0.5s;
+    }
+
+    .darkModeBtn{
+        overflow-x: hidden;
+        position: absolute;
+        right: -9.5rem;
+        transition: right 0.5s ease-in-out;
+    }
+
+    /*--------menu responsivo----------*/
+    .navMenu input:checked ~ .menuList{ /*estado do da aba do menu quando o input for marcado*/ 
+        right: 0;
+    }
+
+    .navMenu input:checked ~ .darkModeBtn,
+    .navMenu input:checked ~ .darkModeBtn.lightMode{ /*estado do botão darkmode quando o input for marcado (menu mobile for aberto)*/ 
+        z-index: 1;
+        right: 22rem;
+    }
+
+    .navMenu input:checked ~ label .menuIcon{ /*altera o menu hamburguer para um 'X' quando o menu é clicado/aberto */
+        background-color: #e04958;
+        transform: rotate(45deg);
+    }
+    
+    .navMenu input:checked ~label .menuIcon:before{ /*altera o menu hamburguer para um 'X' quando o menu é clicado/aberto */
+        background-color: #e04958;
+        transform: rotate(90deg);
+        top: 0;
+    }
+    
+    .navMenu input:checked ~label .menuIcon:after{ /*altera o menu hamburguer para um 'X' quando o menu é clicado/aberto */
+        background-color: #e04958;
+        transform: rotate(90deg);
+        bottom: 0;
+    }
+
+    .menuOption[href="#sobre"]::before{
+        font-family: 'Font Awesome 5 Free'; 
+        content: '\f2bb'; 
+        font-weight: 900;
+        margin-right: 3rem;
+    }
+
+    .menuOption[href="#tecnologia"]::before{
+        font-family: 'Font Awesome 5 Free'; 
+        content: '\f085'; 
+        font-weight: 900;
+        margin-right: 2.7rem;  
+    }
+
+    .menuOption[href="#projetos"]::before{
+        font-family: 'Font Awesome 5 Free'; 
+        content: '\f0eb'; 
+        font-weight: 900;
+        margin: 0 4rem 0 0.6rem; 
+    }
+
+    .menuOption[href="#contato"]::before{
+        font-family: 'Font Awesome 5 Free'; 
+        content: '\f095'; 
+        font-weight: 900;
+        margin: 0 3.6rem 0 0.2rem;
+    }
+}
+
+@media(max-width: 768px){
+    .menuList{ /* aba do menu hamburguer */
+        width: 25rem; 
+    }
+    .navMenu  input:checked ~ .darkModeBtn,
+    .navMenu  input:checked ~ .darkModeBtn.lightMode{ /*estado do botão darkmode quando o input(menu mobile) for marcado*/ 
+        right: 18rem;
+    }
+    
+    .navMenu .menuList .menuOption{
+        font-size: 2.6em;
+    }
+}
+
+@media(max-width: 576px){
+    .header{
+        height: 8rem;
+    }
+
+    .header .logo{
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 480px){
+    .menuList{ /* aba do menu hamburguer */
+        width: 22rem; 
+    }
+
+    .navMenu input:checked ~ .darkModeBtn,
+    .navMenu input:checked ~ .darkModeBtn.lightMode{ /*estado do botão darkmode quando o input(menu mobile) for marcado*/ 
+        right: 15rem;
+    }
+
+    .menuOption{
+        font-size: 2.4em;
+    }
+}
+
+@media (max-width: 390px){
+    .menuList{ /* aba do menu hamburguer */
+        width: 19rem; 
+    }
+
+    .navMenu input:checked ~ .darkModeBtn,
+    .navMenu input:checked ~ .darkModeBtn.lightMode{ /*estado do botão darkmode quando o input(menu mobile) for marcado*/ 
+        right: 12rem;
+    }
+
+    .menuOption{
+        font-size: 1.8em;
+    }
+}

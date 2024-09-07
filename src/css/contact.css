@@ -1,25 +1,20 @@
-/*seção de contatos*/
 .contact{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80rem;
+    height: 82rem;
     padding: 0 3rem;
 }
 
-.contact .sectionTitle{
-    margin-bottom: 1em;
-}
-
-.contact .contactMessage{
+.contactMessage{
     font-family: "Raleway", sans-serif;
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
-.contact .social {
+.social {
     margin: 3rem 0;
     display: flex;
     justify-content: center;
@@ -27,7 +22,7 @@
     gap: 5rem;
 }
 
-.contact .social .socialSingle{
+.socialSingle{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,13 +30,7 @@
     gap: 1rem;
 }
 
-.contact .social .line {
-    width: 0.3rem;
-    background-color: #e04958;
-    height: 15rem;
-}
-
-.contact .social .socialSingle .icon{
+.socialSingle .icon{
     width: 1.7em;
     height: 5rem;
     border: 0.2rem solid black;
@@ -54,22 +43,89 @@
     justify-content: center;
 }
 
-.contact .social .socialSingle .icon:hover{
+.socialSingle .icon:hover{
     transition: 0.3s ease-out;
     background-color: #e04958;
 }
 
-.contact .social .socialSingle:last-child .icon:hover { /*para remover o hover do icon do e-mail*/
+.socialSingle:last-child .icon:hover { /*para remover o hover do icon do e-mail*/
     background-color: white;
     transition: none; 
 }
 
-.contact .social .socialSingle .contactOption{
+.contactOption{
     font-family: "Noto Sans", sans-serif;
     font-size: 2rem;
 }
 
-.contact .social .socialSingle .contactDescription{
+.contactDescription{
     font-family: "Noto Sans", sans-serif;
     font-size: 1.6rem;
+}
+
+/*linha vertical*/
+.line { 
+    width: 0.3rem;
+    background-color: #e04958;
+    height: 15rem;
+}
+
+@media (max-width: 992px) {
+    .social {
+        gap: 3rem;
+    }
+
+    .contactMessage{
+        font-size: 1.8rem;
+    }
+
+    .contactOption{
+        font-size: 1.7rem;
+    }
+    
+    .contactDescription{
+        font-size: 1.5rem;
+    }
+    
+    .line {
+        display: none;
+    }
+}
+
+@media(max-width: 768px){
+    .social {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .socialSingle{
+        width: 30%;
+    }
+
+    .contact{
+        padding: 0 2rem;
+    }
+    
+    .contactMessage{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    
+    .contactOption{
+        font-size: 1.6rem;
+    }
+    
+    .contactDescription{
+        font-size: 1.4rem;
+    }
+}
+
+@media(max-width: 480px){
+    .contact{
+        margin-top: 8rem;
+    }
+    
+    .socialSingle{
+        width: 55%;
+    }
 }

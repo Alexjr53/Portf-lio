@@ -7,45 +7,47 @@
     height: 95rem;
 }
 
-.about .aboutContainer{
+/*estilo do titulo da section está no global.css*/
+
+.aboutContainer{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5rem;
 }
 
-.about .aboutContainer .photo img{
+.photo img{
     width: 35rem;
     border-radius: 50%;
 }
 
-.about .aboutContainer .textContainer{
-    max-width: 40%;
+.contentAbout{
+    max-width: 45%;
 }
 
-.about .aboutContainer .textContainer .text{
+.contentAbout p{
     font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
-.about .aboutContainer .textContainer .socialContainer{
+.socialContainer{
     display: flex;
     align-items: center;
     margin-top: 3rem;
     gap: 2rem;
 }
 
-.about .aboutContainer .textContainer .socialContainer .iconLink i{
+.socialContainer .iconLink i{
     font-size: 3.5rem;
 }
 
-.about .aboutContainer .textContainer .socialContainer .iconLink i:hover{
+.socialContainer .iconLink i:hover{
     transition: 0.3s ease-out;
     color: #e04958;
 }
 
-.about .aboutContainer .textContainer .socialContainer .curriculoBtn{
+.socialContainer .curriculoBtn{
     font-family: "Noto Sans", sans-serif;
     display: flex;
     align-items: center;
@@ -56,18 +58,84 @@
     background-color: #dd3445;
 }
 
-.about .aboutContainer .socialContainer .curriculoBtn:hover{
+.socialContainer .curriculoBtn:hover{
     transition: 0.3s ease-out;
     background-color: #a51927;
 }
 
-.about .aboutContainer .socialContainer .curriculoBtn .btnLink{
+.socialContainer .curriculoBtn a{
     font-size: 1.6rem;
     font-weight: 700;
     color: black;
 }
 
-.about .aboutContainer .socialContainer .curriculoBtn .btnLink i{
+.socialContainer .curriculoBtn a i{
     font-size: 2rem;
     color: black;
+}
+
+/*--------------Responsivo--------------*/
+@media (max-width: 1200px) {
+    .contentAbout{
+        max-width: 55%;
+    }
+}
+
+@media (max-width: 992px) {
+    .about{
+        height: 110rem;
+    }
+    
+    .aboutContainer{
+        padding: 0 3rem;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .contentAbout{
+        max-width: 100%;
+    }
+    
+    .photo img{
+        width: 30rem;
+    }
+    
+    .socialContainer{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contentAbout p{
+        font-size: 1.7rem;
+    }
+
+    .aboutContainer{
+        gap: 5rem;
+    }
+    
+    .photo img{
+        width: 20rem;
+    }
+}
+
+@media (max-width: 576px){
+    .aboutContainer{
+        padding: 0 2rem;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px){
+    .about{
+        margin-top: 3rem;
+    }
+    
+    .socialContainer .iconLink i{
+        font-size: 3rem;
+    }
+    
+    .socialContainer .curriculoBtn a{
+        font-size: 1.4rem;
+    }
 }

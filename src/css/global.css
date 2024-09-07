@@ -20,13 +20,13 @@ body{
 }
 
 /*para adicionar a transição aos conteudos da pagina*/
-.content, .contentProjects{
+.scrollAnimate, .scrollAnimateProjects{
     opacity: 0;
     transform: translateX(20%);
     transition: opacity 0.8s ease-in, transform 1.5s ease;
 }
 
-.content.visible, .contentProjects.visible {
+.scrollAnimate.visible, .scrollAnimateProjects.visible {
     opacity: 1;
     transform: translateX(0);
 }
@@ -65,8 +65,8 @@ body.bodyLightMode{
 /*-----------------------------------------------------------------------*/
 
 
- /*estilizando a scrollbar*/
- ::-webkit-scrollbar-thumb:hover {
+/*estilizando a scrollbar*/
+::-webkit-scrollbar-thumb:hover {
     background: #9e2632; /* Cor do thumb ao passar o mouse */
 }
 
@@ -81,4 +81,17 @@ body.bodyLightMode{
 ::-webkit-scrollbar-thumb {
     background-color: #e04958; /* Cor do thumb (parte que se move) */
     border-radius: 1rem; /* Bordas arredondadas */
+}
+
+@media (max-width: 768px) {
+    .sectionTitle{ /*classe para adicionar estilo a todos os titulos das sections*/
+        font-size: 3.5rem;
+        margin-bottom: 2em;
+    }
+}
+@media (max-width: 585px){
+    .sectionTitle{ /*classe para adicionar estilo a todos os titulos das sections*/
+        font-size: 3.5rem;
+        margin-bottom: 1.7em;
+    }
 }

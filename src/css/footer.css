@@ -10,12 +10,12 @@
     color: white;
 }
 
-.footer .footerMessage{
+.footerMessage{
     font-family: "Raleway", sans-serif;
     font-size: 1.8rem;
 }
 
-.footer .arrowUp{
+.arrowUp{
     position: absolute;
     right: 20rem;
     bottom: 7rem;
@@ -31,11 +31,23 @@
 }
 
 
-.footer .arrowUp img{
+.arrowUp img{
     width: 5rem;
     transform: rotateX(180deg);
 }
 
-.footer .arrowUp:hover{
+.arrowUp:hover{
     background-color: white;
+}
+
+@media (max-width: 992px) {
+    .arrowUp{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .footerMessage{
+        font-size: 1.5rem;
+    }
 }
