@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
         threshold: 0.1 
     });
 
-    const generalContents = document.querySelectorAll(".content");
+    const generalContents = document.querySelectorAll(".scrollAnimate");
     generalContents.forEach((content) => { // aplicara a lógica de visibilidade da callback.
         generalObserver.observe(content);
     });
 
-    const projectsContent = document.querySelector(".contentProjects");
+    const projectsContent = document.querySelector(".scrollAnimateProjects");
     
     if (projectsContent) { 
         projectsObserver.observe(projectsContent); // aplica as regras de visibilidade específicas para a section de projetos.
