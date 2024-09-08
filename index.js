@@ -1,22 +1,22 @@
-//-----------------------efeito de digitação do banner
 const title = document.querySelector('.bannerTitle');
 const subtitle = document.querySelector('.bannerSubtitle');
 const logoEvent = document.querySelector('.logo');
-const arrowUpEvent = document.querySelector('.arrowUp')
+const arrowUpEvent = document.querySelector('.arrowUp');
 
 subtitle.classList.add('hidden'); //adiciona a classe com opacity 0 ao h2 para quando animação de digitação começar o elemento não começar visivel na tela.
 
-// Função principal para criar o efeito de digitação------------
+//---------------------------------efeito de digitação do banner----------------------
+// Função principal para criar o efeito de digitação
 function animateTypingEffect (element, animateSubtitle){
     const originalHtml = element.innerHTML; //para preservar o estilo do span na segunda frase
     const textArray = element.textContent.split('');
     element.innerHTML = ""; 
     
-    // adiciono uma letra a cada 110 milisegundos
+    
     textArray.forEach((characters, index) => {
         setTimeout(function(){
             element.innerHTML += characters;
-        }, 110 * index) // tempo entre a renderização de cada letra
+        }, 110 * index) 
     });
     
     // chama a função de callback (segunda frase) após a conclusão do efeito de digitação
@@ -31,11 +31,11 @@ function secondSentence(element, originalHtml, animateSubtitle, textArray){
     }, 110 * textArray.length);
 }
 
+// Função para ativar o cooldown de clique do logo e da seta
 
-// Função para ativar o cooldown de clique do logo e da seta------------------
+let canClickLogo = false; // controlar o cooldown de 5 segundos
 function activateClickCooldown(callback, cooldownTime = 5000) {
-    let canClickLogo = false; // controlar o cooldown de 5 segundos
-    setTimeout(()=>{// só permite o clique apos 5 segundos depois que a página for carregada pela primeira vez
+    setTimeout(()=>{
         canClickLogo = true;
     }, cooldownTime);
     
@@ -57,9 +57,8 @@ const handleClick = activateClickCooldown(()=>{
     animateTypingEffect (title, animateSubtitle);
 });
 
-// Adiciona o evento de clique no logo
+// Adiciona o evento de clique no logo e na seta do footer
 logoEvent.addEventListener('click', handleClick);
-// Adiciona o evento de clique na seta do footer
 arrowUpEvent.addEventListener('click', handleClick);
 
 function animateSubtitle(){
@@ -70,10 +69,9 @@ function animateSubtitle(){
 // Inicializa o efeito de digitação no carregamento da página
 animateTypingEffect (title, animateSubtitle);
 
-
+//-------------------------------------------------------------------
 
 //-------------------transição dos conteudo usando scrollbar-----------
-
 document.addEventListener("DOMContentLoaded", function () {
     const generalObserver = new IntersectionObserver((entries) => { 
         entries.forEach((entry) => { // entry contém informações sobre o elemento observado
@@ -110,90 +108,72 @@ document.addEventListener("DOMContentLoaded", function () {
         projectsObserver.observe(projectsContent); // aplica as regras de visibilidade específicas para a section de projetos.
     }
 });
-//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
-
-//-----------------------------clique fora do menu---------------------------------------
-document.addEventListener("click", function(event) {
-    const btnMenuMobile = document.querySelector('.menuMobile'); //container dos icones do menu mobile
-    const btnMenuSpan = document.querySelector('.menuIcon'); // span que compoe o menu mobile (icones)
-    const checkboxMenuMobile = document.getElementById('mobile-menu-toggle'); // checkbox que é marcado quando o 'botão' do menu é clicado *ele faz o menu ser aberto e fechado usando css*
-    const menuMobile = document.querySelector('.menuList'); // toda a area do menu do mobile
-    const darkModeBtn = document.querySelector('.darkModeBtn')
-    
-    //if para definir que o clique foi fora do menu
-    if (!btnMenuMobile.contains(event.target) && !btnMenuSpan.contains(event.target) && !checkboxMenuMobile.contains(event.target) && !menuMobile.contains(event.target) && !darkModeBtn.contains(event.target) ) {
-        if (checkboxMenuMobile.checked) {
-            checkboxMenuMobile.checked = false;
-        }
-    }
-});
-
-//-------------------------------criando o card dos projetos-------
+//----------------------------criando o card dos projetos-------------------
 const projectsCardsContainer = document.querySelector('.projectsContainer');
-const closeModalButton = document.querySelector('.closeButton');
 
-async function fetchProjects (){ 
-    const response = await fetch("projects.json");//arquivo salvo no projeto
-    return await response.json();
+async function fetchProjects() {
+    try {
+        const response = await fetch("projects.json");
+        if (!response.ok) throw new Error('Erro ao buscar os projetos');
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao buscar os projetos:', error);
+        return []; // Retorna um array vazio como fallback
+    }
+}
+
+async function createCards() {
+    const data = await fetchProjects();
+    data.forEach(project => createProjectCard(project));
+}
+
+function createProjectCard(project){
+    const projectCard = document.createElement('div');
+    projectCard.className = 'projectCard';
+    projectCard.id =`${project.id}`
+    projectCard.style.backgroundImage = `url(${project.image})`
+
+    const cardContent = generateCardContent(project)
+    projectCard.innerHTML = cardContent
+    
+    // Adiciona um evento de clique ao card para abrir o modal com os detalhes do projeto
+    projectCard.addEventListener('click', () => openModal(project));
+
+    // Adiciona o card criado ao container dos cards na página
+    projectsCardsContainer.appendChild(projectCard);
 }
 
 function createTechnologiesIcons(technologies) { //função para criar os icones do projeto em relação a quantidade de icones que cada projeto possui
     return technologies.map(icon => `<i class="fab fa-${icon}"></i>`).join('');
 }
 
-// Itera sobre cada projeto nos dados retornados
-async function createCards() {
-    const data = await fetchProjects();
-
-    data.forEach(project => { //para cada projeto
-        const projectName = project.name;
-        const projectDescription = project.description;
-        const projectImages = project.image;
-        const projectId = project.id;
-        const technologiesIcons = createTechnologiesIcons(project.technologies); //armazeno em uma variavel os icones
+function generateCardContent(project){
+    const technologiesIcons = createTechnologiesIcons(project.technologies);
+    return `
+            <h3 class="projectName">${project.name}</h3>
+            <div class="projectIcons">
+                ${technologiesIcons}
+            </div>
+            <div class="projectDetails">
+                <p>${project.name}</p>
+                <input class="btnModalOpen" type="button" value="Ver Mais">
+            </div>
+            ` 
         
-        // Cria um elemento 'div' para o card do projeto
-        const projectCard = document.createElement('div');
-        projectCard.className = 'projectCard';
-        projectCard.id =`${projectId}`
-        projectCard.style.backgroundImage = `url(${projectImages})`// Define a imagem de fundo do card
-
-        // Define o conteúdo HTML interno do card
-        projectCard.innerHTML += `
-                                    <h3 class="projectName">${projectName}</h3>
-                                    <div class="projectIcons">
-                                        ${technologiesIcons}
-                                    </div>
-                                    <div class="projectDetails">
-                                        <p>${projectName}</p>
-                                        <input class="btnModalOpen" type="button" value="Ver Mais">
-                                    </div>
-                                ` 
-        // Adiciona um evento de clique ao card para abrir o modal com os detalhes do projeto
-        projectCard.addEventListener('click', () => openModal(project));
-
-        // Adiciona o card criado ao container dos cards na página
-        projectsCardsContainer.appendChild(projectCard);
-
-    });
-    // Adiciona um evento de clique ao botão de fechar o modal
-    closeModalButton.addEventListener('click', function(event) {
-        if (event.target.closest('.closeButton')) {
-            closeModal();
-        }
-    });
 }
 
-//------------------------------------funções para abrir e fechar o modal
-// Função para abrir o modal com as informações do projeto selecionado
-function openModal(project) {
-    const overlay = document.querySelector('.overlay');
-    const modal = document.querySelector('.modal'); 
+createCards();
 
+//------------------------------------funções para abrir e fechar o modal
+const overlay = document.querySelector('.overlay');
+const modal = document.querySelector('.modal'); 
+const closeModalButton = document.querySelector('.closeButton');
+
+function openModal(project) {
     const technologiesIcons = createTechnologiesIcons(project.technologies);// Cria os ícones das tecnologias usadas no projeto
     
-    // Atualiza o conteúdo do modal com as informações do projeto
     modal.querySelector('.modalImage').src = project.image;
     modal.querySelector('.linkSite').href = project.linkSite;
     modal.querySelector('.linkRepositorio').href = project.linkRepositorio;
@@ -201,7 +181,6 @@ function openModal(project) {
     modal.querySelector('.modalDescription').innerHTML = project.description;
     modal.querySelector('.modalIcons').innerHTML = technologiesIcons
 
-    // Exibe o overlay e o modal 
     overlay.classList.add('show')
     modal.classList.add('show')
 
@@ -210,14 +189,9 @@ function openModal(project) {
         overlay.style.opacity = '1';
         modal.style.opacity = '1';
     }, 10);
-
 }
-// Função para fechar o modal
+
 function closeModal(){
-    const overlay = document.querySelector('.overlay');
-    const modal = document.querySelector('.modal');
-    
-    // Reduz a opacidade para 0 para iniciar a transição de fechar
     overlay.style.opacity = '0';
     modal.style.opacity = '0';
     
@@ -228,17 +202,36 @@ function closeModal(){
     }, 500);
 };
 
+// fecha o modal ao clicar no 'X'
+closeModalButton.addEventListener('click', function(event) {
+    if (event.target.closest('.closeButton')) {
+        closeModal();
+    }
+});
+
 //fecha o modal se o usuario clicar fora dele
 document.querySelector('.overlay').addEventListener('click', (event) => {
     const modal = document.querySelector('.modal');
-    
-    // Verifica se o clique foi fora do modal
     if (!modal.contains(event.target)) {
         closeModal();
     }
 });
 
-createCards();
+//-----------------------------clique fora do menu mobile----------------------------
+document.addEventListener("click", function(event) {
+    const btnMenuMobile = document.querySelector('.menuMobile'); 
+    const btnMenuSpan = document.querySelector('.menuIcon'); 
+    const checkboxMenuMobile = document.getElementById('mobile-menu-toggle'); 
+    const menuMobile = document.querySelector('.menuList');
+    const darkModeBtn = document.querySelector('.darkModeBtn')
+    
+    //if para garantir que o clique foi fora do menu
+    if (!btnMenuMobile.contains(event.target) && !btnMenuSpan.contains(event.target) && !checkboxMenuMobile.contains(event.target) && !menuMobile.contains(event.target) && !darkModeBtn.contains(event.target) ) {
+        if (checkboxMenuMobile.checked) {
+            checkboxMenuMobile.checked = false;
+        }
+    }
+});
 
 //--------------------------------botão darkmode
 const darkModeBtn = document.querySelector('.darkModeBtn');
@@ -246,9 +239,7 @@ const spanBtn = document.querySelector('.dark');
 const icons = document.querySelectorAll('.iconLink i');
 const footer = document.querySelector('.footer');
 const arrow = document.querySelector('.arrowUp');
-const modal = document.querySelector('.modal');
 
-// Estado inicial do botão, dark mode está ativo por padrão
 let btnState = false
 
 // Função para alternar entre dark mode e light mode
@@ -261,7 +252,6 @@ const toggleMode = () => {
     arrow.classList.toggle('arrowLightMode', !btnState);
     modal.classList.toggle('modalLightMode', !btnState);
 
-    // Inverte o estado do botão para refletir a mudança de modo
     btnState = !btnState;
   };
   
