@@ -67,20 +67,20 @@ body.bodyLightMode{
 
 /*estilizando a scrollbar*/
 ::-webkit-scrollbar-thumb:hover {
-    background: #9e2632; /* Cor do thumb ao passar o mouse */
+    background: #9e2632; 
 }
 
 ::-webkit-scrollbar-track {
-    background: #191c29; /* Cor de fundo do track do scrollbar */
+    background: #191c29; 
 }
 
 ::-webkit-scrollbar {
-    width: 1rem; /* Largura do scrollbar */
+    width: 1rem;   
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #e04958; /* Cor do thumb (parte que se move) */
-    border-radius: 1rem; /* Bordas arredondadas */
+    background-color: #e04958; 
+    border-radius: 1rem;   
 }
 
 @media (max-width: 768px) {
