@@ -2,7 +2,7 @@ const projectsCardsContainer = document.querySelector('.projectsContainer');
 
 async function fetchProjects() {
     try {
-        const response = await fetch("../../projects.json");
+        const response = await fetch("./projects.json");
         if (!response.ok) throw new Error('Erro ao buscar os projetos');
         return await response.json();
     } catch (error) {
