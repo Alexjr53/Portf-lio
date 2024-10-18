@@ -8,7 +8,7 @@ subtitle.classList.add('hidden'); //adiciona a classe com opacity 0 ao h2 para q
 // Função principal para criar o efeito de digitação
 function animateTypingEffect (element, animateSubtitle){
     const originalHtml = element.innerHTML; //para preservar o estilo do span na segunda frase
-    const textArray = element.textContent.split('');
+    const textArray = element.textContent.split(''); //divide a frase em um array
     element.innerHTML = ""; 
     
     
